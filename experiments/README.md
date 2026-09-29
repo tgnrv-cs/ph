@@ -98,6 +98,8 @@ EchoFM (CC BY-NC-ND) is not used. No EchoNet-Dynamic or PhysioNet data appears i
 - **Quality estimator (K1).** Two estimators are fitted on the same OOS targets: gradient boosting on CPU morphology features and a GPU MLP
   head on pooled chamber features. The MLP is used when CPU feature extraction exceeds 100 ms per clip and its ρ is within 0.05 of the
   best; both ρ values are reported.
+- **Model selection (K1).** Every trained arm, cached-feature (stage 5) and raw-video (stage 6) alike, early-stops on validation NLL with
+  validation PAH AUROC as tie-break on a 20 % group-wise split of the training fold; both values are logged per run.
 - **Flips (K1).** `CFG.flip_mode` defaults to `none`; `swap` mirrors the frame and swaps LV↔RV / LA↔RA ids. Stage 4 logs the fraction of
   videos whose predicted LV centroid lies right of the RV centroid.
 - **FedInit (K2)** relaxes each client's start point away from its last *local* state; smoke mode asserts FedInit ≠ FedAvg.
