@@ -12,6 +12,7 @@ nibabel>=5.0         # NIfTI (CardiacNet, CAMUS v1.1)
 timm>=0.9            # K2 PanEcho ConvNeXt-T encoder
 openpyxl>=3.1        # HMC-QU A4C.xlsx frame index
 # validation tooling only
+pytest>=7.0          # teacher_adapters/test_adapters.py
 nbformat>=5.9
 nbclient>=0.9
 ipykernel>=6.25
